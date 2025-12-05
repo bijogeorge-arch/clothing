@@ -21,12 +21,13 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     const [selectedSize, setSelectedSize] = useState<string | null>(null)
 
     return (
-        <div className="flex flex-col gap-8 p-6 md:p-12 md:sticky md:top-0 h-fit min-h-screen justify-center">
+
+        <div className="flex flex-col gap-8 p-6 md:p-12 md:sticky md:top-0 h-fit min-h-screen justify-center pb-32 md:pb-12">
             <div className="space-y-4">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none"
+                    className="font-display text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-none"
                 >
                     {product.name}
                 </motion.h1>
@@ -70,7 +71,8 @@ export default function ProductInfo({ product }: ProductInfoProps) {
                 </div>
             </div>
 
-            <div className="pt-8 md:pt-12 sticky bottom-0 md:static bg-black/80 backdrop-blur-md md:bg-transparent p-4 md:p-0 -mx-6 md:mx-0 border-t border-white/10 md:border-none z-10">
+            {/* Desktop Button */}
+            <div className="hidden md:block pt-12">
                 <AddToCartButton
                     product={{
                         id: product.id,
@@ -81,6 +83,27 @@ export default function ProductInfo({ product }: ProductInfoProps) {
                     selectedSize={selectedSize}
                 />
             </div>
+
+            {/* Mobile Sticky Bar */}
+            <div className="fixed bottom-0 left-0 w-full z-40 bg-background/95 backdrop-blur-xl border-t border-white/10 p-4 md:hidden flex items-center justify-between gap-4 safe-area-bottom">
+                <div className="flex flex-col">
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Price</span>
+                    <span className="font-mono text-xl font-bold text-white">${product.price.toFixed(2)}</span>
+                </div>
+                <div className="flex-1">
+                    <AddToCartButton
+                        product={{
+                            id: product.id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.images[0]
+                        }}
+                        selectedSize={selectedSize}
+                        className="h-12 text-sm"
+                    />
+                </div>
+            </div>
         </div>
     )
+
 }

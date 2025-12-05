@@ -96,7 +96,7 @@ export default function Navbar({ user }: NavbarProps) {
                         <Button
                             variant="neon"
                             size="sm"
-                            className="rounded-full ml-2 font-bold"
+                            className="rounded-full ml-2 font-bold md:hidden"
                             onClick={() => setIsOpen(true)}
                         >
                             MENU

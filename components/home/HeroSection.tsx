@@ -41,13 +41,13 @@ export function HeroSection() {
                 {/* Hero Text */}
                 <div className="relative z-10 flex flex-col items-center justify-center w-full mix-blend-overlay pointer-events-none">
                     <motion.h1
-                        className="text-[10vw] md:text-[12vw] leading-[0.85] font-display font-black text-white whitespace-nowrap tracking-tighter"
+                        className="text-4xl md:text-7xl lg:text-9xl leading-[0.85] font-display font-black text-white whitespace-nowrap tracking-tighter max-w-[90vw] overflow-hidden text-ellipsis"
                         style={{ x: textXLeft, opacity: textOpacity }}
                     >
                         WEAR
                     </motion.h1>
                     <motion.h1
-                        className="text-[10vw] md:text-[12vw] leading-[0.85] font-display font-black text-white whitespace-nowrap tracking-tighter"
+                        className="text-4xl md:text-7xl lg:text-9xl leading-[0.85] font-display font-black text-white whitespace-nowrap tracking-tighter max-w-[90vw] overflow-hidden text-ellipsis"
                         style={{ x: textXRight, opacity: textOpacity }}
                     >
                         THE NOISE
